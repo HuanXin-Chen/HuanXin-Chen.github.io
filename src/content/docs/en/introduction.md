@@ -15,4 +15,6 @@ description: "Docs intro"
 - 💬 Ask me about anything about CS.
 - ❤️ Love anything that's high-performance and easy to use.
 
-Good luck out there, my friend. 🥳
+Good luck out there, my friend. 🥳 <br/>
+ 
+![image.png](/public/wallhaven-qzmpl5.png)
