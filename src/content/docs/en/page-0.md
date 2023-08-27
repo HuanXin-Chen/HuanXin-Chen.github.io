@@ -1,3 +1,7 @@
+---
+title: "图解四种背包问题即优化"
+description: "Docs intro"
+---
 # 导读
 本文将讲解四种背包问题及其优化方式，希望对你有帮助！ ^_^
 <a name="ntxmW"></a>
