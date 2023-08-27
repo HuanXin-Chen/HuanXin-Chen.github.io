@@ -3,6 +3,7 @@ title: "反射实现DTO速转VO"
 description: "Docs intro"
 ---
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/29466846/1692716434437-2ae1df04-6178-411a-b1bf-c76f3b15c47e.png#averageHue=%2329322c&clientId=uaccfe09c-8f76-4&from=paste&height=732&id=ua5fa225a&originHeight=1098&originWidth=1913&originalType=binary&ratio=1.5&rotation=0&showTitle=false&size=2800287&status=done&style=none&taskId=u5eddf361-e70c-4653-865c-af29e23c89e&title=&width=1275.3333333333333)
+![image.png](https://www.bing.com/images/search?q=%E5%9B%BE%E7%89%87&FORM=IQFRBA&id=02D421A5173EB82E9CE8D80C327FF51215AB2959)
 ## 前言
 在开发的过程中，我们要常常要实现DTO（数据传输对象）转VO（视图对象）。<br />可能你会问，什么是DTO，什么是VO？
 > DTO（Data Transfer Object）数据传输对象<br />1、在服务间的调用中，传输的数据对象<br />2、个人理解，DTO是可以存在于各层服务中（接口、服务、数据库等等）服务间的交互使用DTO来解耦
