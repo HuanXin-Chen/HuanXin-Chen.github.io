@@ -1,4 +1,4 @@
-# Welcome to HX's blog, let's get started together！
+# Welcome to H_X's blog, let's get started together！
 # Astro Starter Kit: Docs Site
 
 ```bash
