@@ -1,0 +1,26 @@
+---
+import ThemeToggleButton from './ThemeToggleButton';
+import { COMMUNITY_INVITE_URL } from '../../consts';
+
+type Props = {
+	editHref: string;
+};
+
+const { editHref } = Astro.props;
+const showMoreSection = Boolean(COMMUNITY_INVITE_URL);
+---
+
+
+
+<div style="margin: 2rem 0; text-align: center;">
+	<ThemeToggleButton client:visible />
+</div>
+
+<style>
+	.edit-on-github {
+		text-decoration: none;
+		font: inherit;
+		color: inherit;
+		font-size: 1rem;
+	}
+</style>
