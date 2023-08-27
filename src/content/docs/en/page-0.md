@@ -1,4 +1,7 @@
-
+---
+title: "CISCN2023的PWN"
+description: "Docs intro"
+---
 ## 烧烤摊儿（整数溢出+syscall）
 #### 漏洞一：有符合的整数
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/29466846/1685154391132-abb0ff9a-bd20-43c6-896a-0a7c2d694b71.png#averageHue=%23040302&clientId=u9dccbb64-7a49-4&from=paste&height=505&id=u2af6f391&originHeight=834&originWidth=1380&originalType=binary&ratio=1.6500000953674316&rotation=0&showTitle=false&size=110936&status=done&style=none&taskId=u7c136378-6e1c-4b2c-872b-cc62c6056a8&title=&width=836.3635880231228)
@@ -202,16 +205,6 @@ game(payload)
 p.interactive( )
 ```
 ## Strangetalkbot（protocal）
-> 资料学习：protocal
-> - [https://ywhkkx.github.io/2022/11/03/%E7%A5%A5%E4%BA%91%E6%9D%AFCTF2022/](https://ywhkkx.github.io/2022/11/03/%E7%A5%A5%E4%BA%91%E6%9D%AFCTF2022/)
-> - [https://nqoinaen.cn/2022/10/31/2022%E7%AC%AC%E4%B8%89%E5%B1%8A%E7%A5%A5%E4%BA%91%E6%9D%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9Bpwn/#protocol](https://nqoinaen.cn/2022/10/31/2022%E7%AC%AC%E4%B8%89%E5%B1%8A%E7%A5%A5%E4%BA%91%E6%9D%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9Bpwn/#protocol)
-> - [https://blog.csdn.net/zzq487782568/article/details/127778545](https://blog.csdn.net/zzq487782568/article/details/127778545)
-> - [https://loora1n.github.io/2022/11/01/%E3%80%90%E7%A5%A5%E4%BA%91%E6%9D%AF2022%E3%80%91PWN-WriteUp-protocol/](https://loora1n.github.io/2022/11/01/%E3%80%90%E7%A5%A5%E4%BA%91%E6%9D%AF2022%E3%80%91PWN-WriteUp-protocol/)
-> - [https://zhuanlan.zhihu.com/p/141415216](https://zhuanlan.zhihu.com/p/141415216)
-> - [https://bbs.kanxue.com/thread-270004.htm](https://bbs.kanxue.com/thread-270004.htm)
-> 
-解决符号问题：
-> - [https://zhuanlan.zhihu.com/p/141415216](https://zhuanlan.zhihu.com/p/141415216)
 
 ### 逆向分析
 > 前言，本题是protocal
@@ -241,15 +234,6 @@ $ cd pbtk
 $ ./gui.py
 ```
 #### 使用protocal编译
-> 安装方法：[https://github.com/protocolbuffers/protobuf/blob/main/src/README.md](https://github.com/protocolbuffers/protobuf/blob/main/src/README.md)
-> 直接安装github安装即可
-> 需要安装bazel：[https://bazel.build/install?hl=zh-cn](https://bazel.build/install?hl=zh-cn)
-> 遇见问题：[https://bazel.build/install?hl=zh-cn](https://bazel.build/install?hl=zh-cn)
-> 在线网站：[https://protogen.marcgravell.com/](https://protogen.marcgravell.com/)
-
-以上的方法都是傻逼：<br />最好的方法
-> 以后遇到类似的问题，先看看能不能使用一键安装，最后再去思考下策
-
 ```python
 sudo apt-get install protobuf-compiler
 ```
