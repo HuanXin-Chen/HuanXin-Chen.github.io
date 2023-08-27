@@ -2,6 +2,13 @@
 ```bash
 Have a look : https://huanxin-chen.github.io/en/introduction/
 ```
+#### MD-Title
+```bash
+---
+title: "图解四种背包问题即优化"
+description: "Docs intro"
+---
+```
 # Astro Starter Kit: Docs Site
 
 ```bash
