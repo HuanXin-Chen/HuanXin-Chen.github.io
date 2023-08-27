@@ -42,6 +42,7 @@ export const SIDEBAR: Sidebar = {
 		'POST2023💬': [
 			{text:'反射实现DTO速转VO',link:'en/page-2'},
 			{text:'SpringBoot3极简上手指南', link:'en/page-1'},
+			{text:'图解四种背包问题即优化', link:'en/page-0'},
 		],
 	},
 }
