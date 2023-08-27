@@ -3,7 +3,7 @@ title: "Hello! I'm H_X"
 description: "Docs intro"
 ---
 
-#### 🤓 一位平平无奇的大学生，时刻努力中ing
+#### 🤓 一个平平无奇的大学生
 
 ##### 持续学习中..
 
