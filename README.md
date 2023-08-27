@@ -1,6 +1,6 @@
 # Welcome to H_X's blog, let's get started together！
 ```bash
-Have a look : http://localhost:3000/en/introduction
+Have a look : https://huanxin-chen.github.io/en/introduction/
 ```
 # Astro Starter Kit: Docs Site
 
