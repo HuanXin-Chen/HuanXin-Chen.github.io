@@ -11,5 +11,5 @@ export default defineConfig({
 		react(),
 	],
 	site: 'https://HuanXin-Chen.github.io',
-	base: '/root',
+	base: '/',
 });
