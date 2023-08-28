@@ -40,6 +40,7 @@ export const SIDEBAR: Sidebar = {
 			{ text: 'Introduction', link: 'en/introduction' },
 		],
 		'POST2023💬': [
+			{text:'分布式ID中的SnowFlake',link:'en/page-4'},
 			{text:'反射实现DTO速转VO',link:'en/page-3'},
 			{text:'SpringBoot3极简上手指南', link:'en/page-2'},
 			{text:'图解四种背包问题即优化', link:'en/page-1'},
