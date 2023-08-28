@@ -1,3 +1,7 @@
+---
+title: "分布式ID中的SnowFlake"
+description: "Docs intro"
+---
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/29466846/1693235068682-a9485515-d5c0-411a-9401-e8ca327922e4.png#averageHue=%232d3615&clientId=u13ceb42f-59d1-4&from=paste&height=539&id=u34e03ac6&originHeight=539&originWidth=1071&originalType=binary&ratio=1&rotation=0&showTitle=false&size=880713&status=done&style=none&taskId=u352fe3ef-a9e7-48f5-9efc-bf80ac69b5d&title=&width=1071)
 > 雪花算法这一在分布式架构中很常见的玩意，但一般也不需要怎么去深入了解，一方面一般个人项目用不到分布式之类的大型架构，另一方面，就算要用到，市面上很多ID生成器也帮我们完成了这项工作。不过出于学习，本文也简单来介绍一下它的实现和原理。
 
