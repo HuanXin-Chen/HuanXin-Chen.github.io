@@ -8,7 +8,7 @@ description: "Docs intro"
 ##### 持续学习中..
 
 - 🥳 My Github : [HuanXin-Chen](https://github.com/HuanXin-Chen)
-- 🌱 I’m currently learning Java , AICG , Distributed.
+- 🌱 I’m currently learning [this](https://www.yuque.com/yuqueyonghub77ozu/zebpal?#).
 - 🎢 Language proficiency rankings : C++>C>Java>Python>Rust>JS.
 - 📫 WeChat public account : 阿新的杂记.
 - ⚡ Fun fact : Photography , Popping , Guitar.
