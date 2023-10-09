@@ -1,4 +1,8 @@
-![](https://cdn.nlark.com/yuque/0/2023/jpeg/29466846/1696840905037-348d8b3d-6518-4c5f-9d1e-dc154745414f.jpeg?x-oss-process=image%2Fresize%2Cw_1270%2Climit_0%2Finterlace%2C1#averageHue=%2325342b&from=url&id=v1x0O&originHeight=952&originWidth=1270&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />[点击查看【music163】](https://music.163.com/outchain/player?type=2&id=2085452852&auto=0&height=66)
+---
+title: "一文自顶向下串起MySQL"
+description: "Docs intro"
+---
+![](https://cdn.nlark.com/yuque/0/2023/jpeg/29466846/1696840905037-348d8b3d-6518-4c5f-9d1e-dc154745414f.jpeg?x-oss-process=image%2Fresize%2Cw_1270%2Climit_0%2Finterlace%2C1#averageHue=%2325342b&from=url&id=v1x0O&originHeight=952&originWidth=1270&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />
 > 说起MySQL，大家应该都会写sql语句，可是你知道MySQL是如何运行的吗？
 > 本文，将从一条SQL语句开始，一步步，自顶向下串起MySQL。
 
