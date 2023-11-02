@@ -1,11 +1,11 @@
 ---
-title: "About my friends"
+title: "Here is the link"
 description: "Friend"
 ---
 
 #### 👋 Hi,这是我优秀的朋友们！
 
-##### 期待更多人和我成为朋友~
+##### 👨‍💻期待更多人和我成为朋友~
 
 -  📫 [5xxxxx's blog](https://xx5xx.top/)
 
