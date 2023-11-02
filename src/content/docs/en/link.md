@@ -1,19 +1,13 @@
 ---
-title: "Hello! I'm H_X"
-description: "Docs intro"
+title: "Links"
+description: "Friend"
 ---
 
-#### 🤓 一个平平无奇的大学生
+#### 🤓 Hi,这是我优秀的朋友们！
 
-##### 持续学习中..
+##### 期待更多人和我成为朋友~
 
-- 🥳 My Github : [HuanXin-Chen](https://github.com/HuanXin-Chen)
-- 🌱 I’m currently learning [this](https://www.yuque.com/chx3/zebpal?#).
-- 🎢 Language proficiency rankings : C++>C>Java>Go>Python>Rust>JS.
-- 📫 WeChat public account : 阿新的杂记.
-- ⚡ Fun fact : Photography , Popping , Guitar.
-- 💬 Ask me about anything about CS.
-- ❤️ Love anything that's high-performance and easy to use.
+-  [5xxxxx's blog](https://xx5xx.top/)
 
 Good luck and never give up ! ! ! 🔥 <br/>
  

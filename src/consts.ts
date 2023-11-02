@@ -38,6 +38,7 @@ export const SIDEBAR: Sidebar = {
 	en: {
 		'🌱WELCOME': [
 			{ text: 'Introduction', link: 'en/introduction' },
+			{ text: 'Links', link: 'en/link' },
 		],
 		'POST2023💬': [
 			{text:'一文自顶向下串起MySQL',link:'en/page-5'},
