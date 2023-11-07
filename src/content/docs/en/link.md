@@ -9,6 +9,8 @@ description: "Friend"
 
 -  📫 [5xxxxx's blog](https://xx5xx.top/)
 -  📫 [MapleLCG's blog](http://8.134.141.135:4000)
+-  📫 [LiuGuobin's blog](https://liu1272.github.io)
+-  📫 [IamNaHCO3's blog](https://www.iamnahco3.cn/)
 
 <br/>
  
