@@ -8,6 +8,7 @@ description: "Friend"
 ##### 👨‍💻期待更多人和我成为朋友~
 
 -  📫 [5xxxxx's blog](https://xx5xx.top/)
+-  📫 [MapleLCG's blog](http://8.134.141.135:4000)
 
 <br/>
  
