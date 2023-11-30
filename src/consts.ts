@@ -41,6 +41,7 @@ export const SIDEBAR: Sidebar = {
 			{ text: 'About my friends', link: 'en/link' },
 		],
 		'POST2023💬': [
+			{text:'记录一次学校实验Bomb Lab',link:'en/page-8'},
 			{text:'分布式Raft共识算法导读解析',link:'en/page-7'},
 			{text:'Kafka三个实践之道分享',link:'en/page-6'},
 			{text:'一文自顶向下串起MySQL',link:'en/page-5'},
