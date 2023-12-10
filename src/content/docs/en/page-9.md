@@ -1,5 +1,5 @@
 ---
-title: 初读《DDIA》思考小记"
+title: 初读《DDIA》思考小记
 description: "Docs intro"
 ---
 ## 前言
