@@ -33,5 +33,6 @@
     "@types/markdown-it": "^13.0.5",
     "@types/sanitize-html": "^2.9.3",
     "vitest": "^0.34.6"
-  }
+  },
+  "packageManager": "pnpm@^6.32.4"
 }
