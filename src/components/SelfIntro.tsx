@@ -26,8 +26,8 @@ export const SelfIntro = ({ children }: { children: JSXElement }) => {
     <div class="flex flex-col">
       <div class="flex flex-row">
         <div class="flex-1">
-          <h1 class="text-3xl font-bold">Hi!</h1>
-          <p>I'm 3500.</p>
+          <h1 class="text-3xl font-bold">Hi!👋</h1>
+            <p>  I'm 3500, from Guangzhou University.</p>
         </div>
         {children}
       </div>
