@@ -1,0 +1,17 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+import BlogPost from "../../layouts/BlogPost.astro";
+import { getStaticPaths as getBlogPaths, posts } from "../../api/blog";
+
+export const getStaticPaths = getBlogPaths(posts);
+
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+const { Content, headings } = await post.render();
+---
+
+<BlogPost {...post.data} headings={headings}>
+  <Content />
+</BlogPost>
