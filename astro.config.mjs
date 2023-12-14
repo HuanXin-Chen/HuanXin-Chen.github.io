@@ -13,6 +13,7 @@ import solidJs from "@astrojs/solid-js";
  */
 export default defineConfig({
   site: "https://huanxin-chen.github.io/",
+  base: "/",
   integrations: [mdx(), sitemap(), tailwind(), prefectch(), solidJs()],
   image: {
     service: {
