@@ -10,9 +10,8 @@ description: 学了又忘，开始复习！
 
 ![](https://cdn.nlark.com/yuque/0/2023/png/29466846/1700720278845-e002ddce-fda7-448a-aaac-99dc15ef3435.png#averageHue=%23efeedb&from=url&height=348&id=Q26Am&originHeight=348&originWidth=729&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=&width=729)
 
-本文讲解的类型为String、List、Hash。<br/>
-一口吃不成胖子，慢工出细活，稳稳来！
 ---
+本文讲解的类型为Set、Zset。<br />一口吃不成胖子，慢工出细活，稳稳来！
 
 # String
 String 是最基本的 key-value 结构，key 是唯一标识，value 是具体的值，value其实不仅是字符串， 也可以是数字（整数或浮点数），value 最多可以容纳的数据长度是 **512M**。
