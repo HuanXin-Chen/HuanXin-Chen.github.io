@@ -1,7 +1,7 @@
 ## ✍️Introduction
 A personal static webpage developed using the astro framework.<br />
 The website is developed based on [situ-note](https://github.com/situ2001/situ-note) and packaged using npm.<br />
-combining personal circumstances to simplify the deployment and push process.<br />
+Combining personal circumstances to simplify the deployment and push process.<br />
 The image hosting is stored in Yuque, and the cross-domain restrictionThe image hosting is stored in Yuque, and the cross-domain restriction is solved to request image resources.<br />
 # 🤖Astro Starter Kit
 ```go
