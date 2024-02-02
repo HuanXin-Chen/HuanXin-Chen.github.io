@@ -8,7 +8,7 @@ export const TableOfContent = ({
   // map depth => depth - 2, with minimum 0
   headings = headings.map((heading) => ({
     ...heading,
-    depth: Math.max(heading.depth - 2, 0),
+    depth: Math.max(heading.depth - 1, 0),
   }));
 
   return (
