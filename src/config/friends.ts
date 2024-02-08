@@ -17,4 +17,8 @@ export const friends: FriendCardProps[] = [
     name: "IamNaHCO3",
     link: "https://www.iamnahco3.cn/",
   },
+  {
+    name: "Pun",
+    link: "http://101.200.134.80:8080",
+  },
 ];
