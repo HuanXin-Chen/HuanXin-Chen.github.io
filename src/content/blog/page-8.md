@@ -6,7 +6,6 @@ tag: 技术
 author: huanxin
 image: ../../assets/face/8.png
 ---
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9951408b8115407c80492dd94b1b28a6~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## 走进SpringBoot一站式开发
 
