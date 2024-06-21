@@ -1,7 +1,7 @@
 ---
 title: "微内核架构与SPI扩展机制探究"
 pubDate: 2024-06-21
-intro: 又长大了一岁！
+intro: 微内核架构与基于SPI思想的扩展S机制思考！
 tag: 技术
 author: huanxin
 image: ../../assets/face/23.png
