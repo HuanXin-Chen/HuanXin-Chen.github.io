@@ -5,5 +5,5 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), mdx()],
-  site: "https://pacamara-astro-6y7xr.kinsta.page"
+  site: "https://huanxin-chen.github.io/"
 });
