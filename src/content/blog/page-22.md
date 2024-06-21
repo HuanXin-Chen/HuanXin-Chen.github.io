@@ -1,7 +1,7 @@
 ---
 title: "二十岁纪念|HBD To Me"
 pubDate: 2024-02-15
-intro: 又长大了一岁！
+intro: 又长大了一岁，有更多的时间做更多的事了！
 tag: 生活
 author: huanxin
 image: ../../assets/face/22.png
