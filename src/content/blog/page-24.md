@@ -22,9 +22,7 @@ image: ../../assets/face/24.png
 - 基于一致性hash的选择
 - 基于权重的随机分配选择
 - 基于权重的加权轮询选择
-:::warning
 可以说这三者，就是经典的负载均衡策略代表了，背后分别表示着：哈希、随机、轮询
-:::
 ```java
 public enum LoadBalanceEnum {
     /**
