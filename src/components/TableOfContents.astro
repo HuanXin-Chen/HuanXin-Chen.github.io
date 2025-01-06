@@ -69,7 +69,7 @@ const { headings } = Astro.props;
 
 <script>
   function isMobile() {
-    return window.innerWidth <= 768; // 使用 768px 作为移动设备的断点
+    return window.innerWidth <= 768;
   }
 
   function setupTOC() {
@@ -104,7 +104,7 @@ const { headings } = Astro.props;
     isOpen = false;
     updateSvg(isOpen);
 
-    trigger.addEventListener("click", (e) => {
+    trigger.addEventListener("click", () => {
       if (isDragging) return;
       isOpen = !isOpen;
       if (isOpen) {
@@ -153,22 +153,8 @@ const { headings } = Astro.props;
     });
   }
 
-  function setupHeadingLinks() {
-    document.querySelectorAll("[data-heading-link]").forEach(link => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
-        if (href) {
-          window.history.replaceState(null, "", href);
-          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-    });
-  }
-
   document.addEventListener("astro:page-load", () => {
     setupTOC();
-    setupHeadingLinks();
   });
 </script>
 
