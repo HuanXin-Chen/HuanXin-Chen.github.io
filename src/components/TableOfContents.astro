@@ -1,0 +1,184 @@
+---
+export interface Props {
+  headings: {
+    depth: number;
+    slug: string;
+    text: string;
+  }[];
+}
+
+const { headings } = Astro.props;
+---
+
+<aside 
+  id="toc-container" 
+  class="fixed right-0 top-20 z-40 transition-transform duration-300"  {/* left-0 改为 right-0 */}
+  aria-label="Table of contents"
+>
+  <!-- 触发按钮 - 移到左边 -->
+  <button
+    id="toc-trigger"
+    class="absolute left-0 -translate-x-full bg-skin-fill border-2 border-r-0 border-skin-line p-2 rounded-l-lg text-skin-base hover:text-skin-accent md:cursor-default cursor-move touch-none"  {/* 修改边框和圆角位置 */}
+    aria-label="Toggle table of contents"
+    title="移动端可拖动"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path class="toc-arrow hidden" d="M9 18l6-6-6-6"></path>
+      <path class="toc-list" d="M3 9h18M3 15h18M3 5h18M3 19h18"></path>
+    </svg>
+  </button>
+
+  <!-- 目录内容 -->
+  <div 
+    id="toc-content"
+    class="w-64 bg-skin-fill border-2 border-skin-line p-4 rounded-l-lg max-h-[calc(100vh-10rem)] overflow-y-auto overflow-x-hidden scrollbar-hide"  {/* rounded-r-lg 改为 rounded-l-lg */}
+  >
+    <h2 class="text-lg font-bold text-skin-base mb-4">目录</h2>
+    <nav>
+      <ul class="space-y-1 list-none">
+        {
+          headings.map(heading => (
+            <li 
+              class={`
+                ${heading.depth === 2 ? "ml-0" : ""}
+                ${heading.depth === 3 ? "ml-4" : ""}
+                ${heading.depth === 4 ? "ml-8" : ""}
+                ${heading.depth === 5 ? "ml-12" : ""}
+                ${heading.depth === 6 ? "ml-16" : ""}
+              `}
+            >
+              <a
+                href={`#${heading.slug}`}
+                class={`
+                  block py-1 text-skin-base hover:text-skin-accent
+                  ${heading.depth === 2 ? "text-base font-medium" : ""}
+                  ${heading.depth === 3 ? "text-sm" : ""}
+                  ${heading.depth >= 4 ? "text-xs opacity-80" : ""}
+                `}
+                data-heading-link
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</aside>
+
+<script>
+  function isMobile() {
+    return window.innerWidth <= 768; // 使用 768px 作为移动设备的断点
+  }
+
+  function setupTOC() {
+    const container = document.getElementById("toc-container");
+    const trigger = document.getElementById("toc-trigger");
+    const triggerSvg = trigger?.querySelector("svg");
+    let isOpen = true;
+
+    if (!container || !trigger || !triggerSvg) return;
+
+    let isDragging = false;
+    let startY = 0;
+    let startTop = 0;
+
+    const updateSvg = (isOpen: boolean) => {
+      const arrowPath = triggerSvg?.querySelector('.toc-arrow');
+      const listPath = triggerSvg?.querySelector('.toc-list');
+      
+      if (arrowPath && listPath) {
+        if (isOpen) {
+          arrowPath.classList.add('hidden');
+          listPath.classList.remove('hidden');
+        } else {
+          arrowPath.classList.remove('hidden');
+          listPath.classList.add('hidden');
+        }
+      }
+    };
+
+    // 初始状态：关闭
+    container.classList.add("translate-x-full");
+    isOpen = false;
+    updateSvg(isOpen);
+
+    trigger.addEventListener("click", (e) => {
+      if (isDragging) return;
+      isOpen = !isOpen;
+      if (isOpen) {
+        container.classList.remove("translate-x-full");
+      } else {
+        container.classList.add("translate-x-full");
+      }
+      updateSvg(isOpen);
+    });
+
+    // 修改鼠标拖拽事件，只在移动端生效
+    trigger.addEventListener("mousedown", (e) => {
+      if (!isMobile()) return;
+      isDragging = true;
+      startY = e.clientY;
+      startTop = parseInt(container.style.top || "80");
+      e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isMobile() || !isDragging) return;
+      const deltaY = e.clientY - startY;
+      const newTop = Math.max(20, Math.min(startTop + deltaY, window.innerHeight - 100));
+      container.style.top = `${newTop}px`;
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+    });
+
+    trigger.addEventListener("touchstart", (e) => {
+      isDragging = true;
+      startY = e.touches[0].clientY;
+      startTop = parseInt(container.style.top || "80");
+    });
+
+    document.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      const deltaY = e.touches[0].clientY - startY;
+      const newTop = Math.max(20, Math.min(startTop + deltaY, window.innerHeight - 100));
+      container.style.top = `${newTop}px`;
+    });
+
+    document.addEventListener("touchend", () => {
+      isDragging = false;
+    });
+  }
+
+  function setupHeadingLinks() {
+    document.querySelectorAll("[data-heading-link]").forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+        if (href) {
+          window.history.replaceState(null, "", href);
+          document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    setupTOC();
+    setupHeadingLinks();
+  });
+</script>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
