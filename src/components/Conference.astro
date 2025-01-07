@@ -16,7 +16,7 @@ const { conference } = Astro.props;
       <Cospeakers conference={conference} />
     )
   }
-  <p class="italic text-sm">{conference.data.description}</p>
+  <p class="text-sm italic">{conference.data.description}</p>
   <ul>
     {conference.data.events.map(event => <Event event={event} />)}
   </ul>

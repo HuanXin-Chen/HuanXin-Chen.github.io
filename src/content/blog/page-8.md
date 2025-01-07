@@ -22,21 +22,21 @@ Spring Boot让您可以轻松地创建独立的、生产级别的Spring应用程
 
 介绍了这么多，我们首先还是来看看SpringBoot功能有哪些：
 
-*   能够创建独立的Spring应用程序
-*   内嵌Tomcat、Jetty或Undertow服务器
-*   提供一站式的“starter”依赖项，以简化Maven配置
-*   尽可能自动配置Spring和第三方库
-*   提供生产环境下相关功能，如指标、运行状况检查和外部化配置
-*   没有任何代码生成，也不需要任何XML配置
+- 能够创建独立的Spring应用程序
+- 内嵌Tomcat、Jetty或Undertow服务器
+- 提供一站式的“starter”依赖项，以简化Maven配置
+- 尽可能自动配置Spring和第三方库
+- 提供生产环境下相关功能，如指标、运行状况检查和外部化配置
+- 没有任何代码生成，也不需要任何XML配置
 
 ### 开始之前的前置技能
 
-*   Java编程语言：Spring Boot是基于Java的框架，因此对Java编程语言的基本概念、语法和特性有一定的了解是必要的。
-*   Spring框架：Spring Boot是构建在Spring框架之上的，因此对Spring框架的核心概念和基本用法有所了解是有帮助的。包括Spring的依赖注入（Dependency Injection）、面向切面编程（Aspect-Oriented Programming）、控制反转（Inversion of Control）等。
-*   Web开发基础：Spring Boot主要用于构建Web应用程序，因此对Web开发的基本概念和技术有所了解是重要的。包括HTTP协议、RESTful架构风格、Web请求和响应、URL映射等。
-*   数据库和SQL：在实际应用中，Spring Boot通常需要与数据库进行交互。因此具备基本的数据库概念和SQL语言的知识是有益的。了解关系型数据库（如MySQL、PostgreSQL）和NoSQL数据库（如MongoDB、Redis）的基础知识也是有帮助的。
-*   Maven或Gradle：Spring Boot使用构建工具（如Maven或Gradle）来管理项目的依赖和构建过程。因此，对于这些构建工具的基本概念和用法有所了解是有益的。
-*   Spring MVC：Spring MVC是Spring框架的一部分，用于构建Web应用程序。它提供了一种基于MVC（Model-View-Controller）模式的开发方式，用于处理请求和生成响应。虽然Spring Boot可以独立于Spring MVC使用，但了解Spring MVC的基本概念和请求处理流程将有助于理解Spring Boot中的Web开发方面。
+- Java编程语言：Spring Boot是基于Java的框架，因此对Java编程语言的基本概念、语法和特性有一定的了解是必要的。
+- Spring框架：Spring Boot是构建在Spring框架之上的，因此对Spring框架的核心概念和基本用法有所了解是有帮助的。包括Spring的依赖注入（Dependency Injection）、面向切面编程（Aspect-Oriented Programming）、控制反转（Inversion of Control）等。
+- Web开发基础：Spring Boot主要用于构建Web应用程序，因此对Web开发的基本概念和技术有所了解是重要的。包括HTTP协议、RESTful架构风格、Web请求和响应、URL映射等。
+- 数据库和SQL：在实际应用中，Spring Boot通常需要与数据库进行交互。因此具备基本的数据库概念和SQL语言的知识是有益的。了解关系型数据库（如MySQL、PostgreSQL）和NoSQL数据库（如MongoDB、Redis）的基础知识也是有帮助的。
+- Maven或Gradle：Spring Boot使用构建工具（如Maven或Gradle）来管理项目的依赖和构建过程。因此，对于这些构建工具的基本概念和用法有所了解是有益的。
+- Spring MVC：Spring MVC是Spring框架的一部分，用于构建Web应用程序。它提供了一种基于MVC（Model-View-Controller）模式的开发方式，用于处理请求和生成响应。虽然Spring Boot可以独立于Spring MVC使用，但了解Spring MVC的基本概念和请求处理流程将有助于理解Spring Boot中的Web开发方面。
 
 > 说了这么多，如果你能顺利完成上面的要求，那我们开始学习，极速上手吧！
 
@@ -46,7 +46,7 @@ Spring Boot让您可以轻松地创建独立的、生产级别的Spring应用程
 
 有了SpringBoot，我们可以享受超快的项目创建体验，只需要前往官网进行少量配置就能快速为你生成一个SpringBoot项目模版：
 
-*   <https://start.spring.io/>
+- <https://start.spring.io/>
 
 ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/407a041981424b699625b7351b6d2b3a~tplv-k3u1fbpfcp-zoom-1.image)<br />当然，IDEA神奇已经内置集成了，我们也通过直接在IDEA上创建<br />![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a3dcd526f7314ab8acdb1bbdb27f6e99~tplv-k3u1fbpfcp-zoom-1.image)<br />实现@SpringBootApplication。
 
@@ -116,8 +116,8 @@ public class WebConfiguration implements WebMvcConfigurer {
 
 启动时，就已经帮助我们配置了一个随机密码的用户可以直接登录使用。
 
-*   默认用户名：user
-*   密码：在日志中显示
+- 默认用户名：user
+- 密码：在日志中显示
 
 > 我们也可以自己设定，我们放在后面进行分享。
 
@@ -157,8 +157,8 @@ public class SecurityConfiguration {
 
 目录：
 
-*   `templates` - 所有模版文件都存放在这里
-*   `static` - 所有静态资源都存放在这里
+- `templates` - 所有模版文件都存放在这里
+- `static` - 所有静态资源都存放在这里
 
 > 注意默认情况：static/static，我们也可以进行自己定义修改，后文分享。
 
@@ -209,7 +209,7 @@ public class TestRunner implements ApplicationRunner {
     二级目录:
       三级目录1: 值
       三级目录2: 值
-      三级目录List: 
+      三级目录List:
       - 元素1
       - 元素2
       - 元素3
@@ -265,7 +265,7 @@ public interface UserMapper {
 #### 配置Mvc和Security
 
 ```java
-spring:  
+spring:
   #  Spring Mvc相关配置
   mvc:
     static-path-pattern: /static/**   #静态资源解析地址
@@ -348,17 +348,17 @@ public class DemoApplication extends SpringBootServletInitializer {  //继承专
 
 注意，不支持跨平台。
 
-***
+---
 
 首先我们需要安装GraalVM的环境才可以，这跟安装普通JDK的操作是完全一样的，下载地址：
 
-*   <https://github.com/graalvm/graalvm-ce-builds/releases/tag/jdk-17.0.7>
+- <https://github.com/graalvm/graalvm-ce-builds/releases/tag/jdk-17.0.7>
 
-下载好对应系统架构的GraalVM环境之后，就可以安装部署了，首先我们需要为GraalVM配置环境变量，将GRAALVM\_HOME作为环境变量指向你的安装目录的bin目录下，接着我们就可以开始进行打包了（注意，SpringBoot项目必须在创建的时候添加了Native支持才可以，否则无法正常打包）<br />注意，一定要将`GRAALVM_HOME`配置到环境变量中，否则会报错：
+下载好对应系统架构的GraalVM环境之后，就可以安装部署了，首先我们需要为GraalVM配置环境变量，将GRAALVM_HOME作为环境变量指向你的安装目录的bin目录下，接着我们就可以开始进行打包了（注意，SpringBoot项目必须在创建的时候添加了Native支持才可以，否则无法正常打包）<br />注意，一定要将`GRAALVM_HOME`配置到环境变量中，否则会报错：
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/104703ca905e4333a1e60be404f99ae9~tplv-k3u1fbpfcp-zoom-1.image)
 
-***
+---
 
 一切OK，命令输入（建议挂梯子，CPU选择6核及以上）
 
@@ -380,9 +380,9 @@ mvn -Pnative -DskipTests native:compile
 
 Slf4j本身只是一个接口规范，它定义了一组日志输出的方法，如info()、debug()、error()等。这些方法可以在应用程序中使用，而具体的日志实现则由各个框架自行选择和配置。<br />实际上，Slf4j提供了适配器（Adapter）的机制，可以将不同的日志框架与Slf4j进行集成。这样，应用程序中的Slf4j日志调用会被适配到具体的日志实现上，实现了对不同日志框架的统一调用。<br />通过这种偷梁换柱的方式，我们可以在应用程序中使用统一的Slf4j接口进行日志输出，而不需要关心具体的日志实现细节。在Spring Boot中，通常会将Slf4j与Logback作为默认的日志实现，但你也可以根据自己的需求进行配置，使用其他日志框架，如Log4j、Log4j2等。<br />![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99081e41f5ee412f8b25b9ae8684247e~tplv-k3u1fbpfcp-zoom-1.image)<br />所以，SpringBoot为了统一日志框架的使用，做了这些事情：
 
-*   直接将其他依赖以前的日志框架剔除
-*   导入对应日志框架的Slf4j中间包
-*   导入自己官方指定的日志实现，并作为Slf4j的日志实现层
+- 直接将其他依赖以前的日志框架剔除
+- 导入对应日志框架的Slf4j中间包
+- 导入自己官方指定的日志实现，并作为Slf4j的日志实现层
 
 ![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/02b86f4ac8824776a7ad0e3adcd29132~tplv-k3u1fbpfcp-zoom-1.image)
 
@@ -428,15 +428,15 @@ public class MainController {
 
 和JUL一样，Logback也能实现定制化，我们可以编写对应的配置文件。而且，我们也可以自己定义banner。<br />这里，不做具体介绍，感兴趣的同学可以参考Logback的官网。您可以访问Logback的官方网站获取更详细的信息：
 
-*   <https://logback.qos.ch>
+- <https://logback.qos.ch>
 
 官方文档中有关于Logback布局（Layouts）的内容，您可以在以下链接中找到相关信息：
 
-*   <https://logback.qos.ch/manual/layouts.html>
+- <https://logback.qos.ch/manual/layouts.html>
 
 此外，您还可以访问网站
 
-*   <https://www.bootschool.net/ascii> ↗
+- <https://www.bootschool.net/ascii> ↗
 
 在该网站上生成自己的个性化Banner。
 
@@ -582,7 +582,7 @@ class SpringBootTestApplicationTests {
     @Autowired
     JavaMailSender sender;
 
-    
+
     @Test
     void contextLoads() {
           //SimpleMailMessage是一个比较简易的邮件封装，支持设置一些比较简单内容
@@ -616,27 +616,27 @@ class SpringBootTestApplicationTests {
 
 我们只需要通过注解的方式进行标记即可。
 
-| 验证注解                          | 验证的数据类型                                                                     | 说明                              |
-| ----------------------------- | --------------------------------------------------------------------------- | ------------------------------- |
-| [@AssertFalse ](/AssertFalse) | Boolean,boolean                                                             | 值必须是false                       |
-| [@AssertTrue ](/AssertTrue)   | Boolean,boolean                                                             | 值必须是true                        |
-| [@NotNull ](/NotNull)         | 任意类型                                                                        | 值不能是null                        |
-| [@Null ](/Null)               | 任意类型                                                                        | 值必须是null                        |
-| [@Min ](/Min)                 | BigDecimal、BigInteger、byte、short、int、long、double 以及任何Number或CharSequence子类型 | 大于等于@Min指定的值                    |
-| [@Max ](/Max)                 | 同上                                                                          | 小于等于@Max指定的值                    |
-| [@DecimalMin ](/DecimalMin)   | 同上                                                                          | 大于等于@DecimalMin指定的值（超高精度）       |
-| [@DecimalMax ](/DecimalMax)   | 同上                                                                          | 小于等于@DecimalMax指定的值（超高精度）       |
-| [@Digits ](/Digits)           | 同上                                                                          | 限制整数位数和小数位数上限                   |
-| [@Size ](/Size)               | 字符串、Collection、Map、数组等                                                      | 长度在指定区间之内，如字符串长度、集合大小等          |
-| [@Past ](/Past)               | 如 java.util.Date, java.util.Calendar 等日期类型                                  | 值必须比当前时间早                       |
-| [@Future ](/Future)           | 同上                                                                          | 值必须比当前时间晚                       |
-| [@NotBlank ](/NotBlank)       | CharSequence及其子类                                                            | 值不为空，在比较时会去除字符串的首位空格            |
-| [@Length ](/Length)           | CharSequence及其子类                                                            | 字符串长度在指定区间内                     |
-| [@NotEmpty ](/NotEmpty)       | CharSequence及其子类、Collection、Map、数组                                          | 值不为null且长度不为空（字符串长度不为0，集合大小不为0） |
-| [@Range ](/Range)             | BigDecimal、BigInteger、CharSequence、byte、short、int、long 以及原子类型和包装类型          | 值在指定区间内                         |
-| [@Email ](/Email)             | CharSequence及其子类                                                            | 值必须是邮件格式                        |
-| [@Pattern ](/Pattern)         | CharSequence及其子类                                                            | 值需要与指定的正则表达式匹配                  |
-| [@Valid ](/Valid)             | 任何非原子类型                                                                     | 用于验证对象属性                        |
+| 验证注解                      | 验证的数据类型                                                                            | 说明                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| [@AssertFalse ](/AssertFalse) | Boolean,boolean                                                                           | 值必须是false                                            |
+| [@AssertTrue ](/AssertTrue)   | Boolean,boolean                                                                           | 值必须是true                                             |
+| [@NotNull ](/NotNull)         | 任意类型                                                                                  | 值不能是null                                             |
+| [@Null ](/Null)               | 任意类型                                                                                  | 值必须是null                                             |
+| [@Min ](/Min)                 | BigDecimal、BigInteger、byte、short、int、long、double 以及任何Number或CharSequence子类型 | 大于等于@Min指定的值                                     |
+| [@Max ](/Max)                 | 同上                                                                                      | 小于等于@Max指定的值                                     |
+| [@DecimalMin ](/DecimalMin)   | 同上                                                                                      | 大于等于@DecimalMin指定的值（超高精度）                  |
+| [@DecimalMax ](/DecimalMax)   | 同上                                                                                      | 小于等于@DecimalMax指定的值（超高精度）                  |
+| [@Digits ](/Digits)           | 同上                                                                                      | 限制整数位数和小数位数上限                               |
+| [@Size ](/Size)               | 字符串、Collection、Map、数组等                                                           | 长度在指定区间之内，如字符串长度、集合大小等             |
+| [@Past ](/Past)               | 如 java.util.Date, java.util.Calendar 等日期类型                                          | 值必须比当前时间早                                       |
+| [@Future ](/Future)           | 同上                                                                                      | 值必须比当前时间晚                                       |
+| [@NotBlank ](/NotBlank)       | CharSequence及其子类                                                                      | 值不为空，在比较时会去除字符串的首位空格                 |
+| [@Length ](/Length)           | CharSequence及其子类                                                                      | 字符串长度在指定区间内                                   |
+| [@NotEmpty ](/NotEmpty)       | CharSequence及其子类、Collection、Map、数组                                               | 值不为null且长度不为空（字符串长度不为0，集合大小不为0） |
+| [@Range ](/Range)             | BigDecimal、BigInteger、CharSequence、byte、short、int、long 以及原子类型和包装类型       | 值在指定区间内                                           |
+| [@Email ](/Email)             | CharSequence及其子类                                                                      | 值必须是邮件格式                                         |
+| [@Pattern ](/Pattern)         | CharSequence及其子类                                                                      | 值需要与指定的正则表达式匹配                             |
+| [@Valid ](/Valid)             | 任何非原子类型                                                                            | 用于验证对象属性                                         |
 
 比如对实体对象传入的要求进行限制
 
@@ -694,8 +694,8 @@ public String error(Exception e){
 
 在前后端分离开发中，前端现在由专业的人来做，而我们往往只需要关心后端提供什么接口给前端人员调用，我们的工作被进一步细分了，这个时候为前端开发人员提供一个可以参考的文档是很有必要的。<br />那么有没有一种比较好的解决方案呢？<br />那就是Swagger！一个巨好用的神奇。<br />Swagger的主要功能如下：
 
-*   支持 API 自动生成同步的在线文档：使用 Swagger 后可以直接通过代码生成文档，不再需要自己手动编写接口文档了，对程序员来说非常方便，可以节约写文档的时间去学习新技术。
-*   提供 Web 页面在线测试 API：光有文档还不够，Swagger 生成的文档还支持在线测试。参数和格式都定好了，直接在界面上输入参数对应的值即可在线测试接口。
+- 支持 API 自动生成同步的在线文档：使用 Swagger 后可以直接通过代码生成文档，不再需要自己手动编写接口文档了，对程序员来说非常方便，可以节约写文档的时间去学习新技术。
+- 提供 Web 页面在线测试 API：光有文档还不够，Swagger 生成的文档还支持在线测试。参数和格式都定好了，直接在界面上输入参数对应的值即可在线测试接口。
 
 结合Spring框架（Spring-doc，官网：<https://springdoc.org/）
 ，Swagger可以很轻松地利用注解以及扫描机制，来快速生成在线文档，以实现当我们项目启动之后，前端开发人员就可以打开Swagger提供的前端页面，查看和测试接口。>
@@ -714,16 +714,15 @@ public String error(Exception e){
 
 以下是Spring Boot官方文档的链接，您可以在其中深入学习和探索更多关于Spring Boot的高级特性和用例：<br />官方文档链接：
 
-*   <https://docs.spring.io>
+- <https://docs.spring.io>
 
 在官方文档中，您将找到详细的说明、示例代码和最佳实践，涵盖了Spring Boot的各个方面，包括配置、开发、部署、测试、监控和扩展等。通过阅读官方文档，您将更好地了解Spring Boot的原理、特性和用法，并能够充分发挥其在应用程序开发中的优势。<br />总结起来，Spring Boot具有以下主要特点和优势：
 
-*   简化的开发流程：Spring Boot提供了自动配置和默认值，使得开发人员可以快速搭建和启动应用程序，减少了繁琐的配置和部署步骤。
-*   内嵌式容器：Spring Boot内置了多种常用的容器，如Tomcat、Jetty等，使得应用程序可以独立运行，无需外部容器的支持。
-*   自动化配置：Spring Boot根据应用程序的依赖和环境，自动配置各种组件和框架，大大减少了手动配置的工作量。
-*   微服务支持：Spring Boot提供了丰富的功能和库，支持构建和部署微服务架构，使得开发分布式系统变得更加简单。
-*   健康监测和管理：Spring Boot提供了健康检查、监控和管理端点，可以方便地监控应用程序的状态和性能，并进行必要的管理操作。
-*   开放式扩展：Spring Boot基于Spring框架，拥有强大的扩展性，开发人员可以根据需要集成其他框架和库，实现更多功能和特性。
+- 简化的开发流程：Spring Boot提供了自动配置和默认值，使得开发人员可以快速搭建和启动应用程序，减少了繁琐的配置和部署步骤。
+- 内嵌式容器：Spring Boot内置了多种常用的容器，如Tomcat、Jetty等，使得应用程序可以独立运行，无需外部容器的支持。
+- 自动化配置：Spring Boot根据应用程序的依赖和环境，自动配置各种组件和框架，大大减少了手动配置的工作量。
+- 微服务支持：Spring Boot提供了丰富的功能和库，支持构建和部署微服务架构，使得开发分布式系统变得更加简单。
+- 健康监测和管理：Spring Boot提供了健康检查、监控和管理端点，可以方便地监控应用程序的状态和性能，并进行必要的管理操作。
+- 开放式扩展：Spring Boot基于Spring框架，拥有强大的扩展性，开发人员可以根据需要集成其他框架和库，实现更多功能和特性。
 
 我对一些初学者常用的模块和知识进行了简单引入，更多内容在官方文档。建议您将文档作为学习和开发过程中的指南，随时查阅和参考。从而更好地应用Spring Boot的功能和特性。祝您在使用Spring Boot的过程中取得愉快和成功的经验！
-

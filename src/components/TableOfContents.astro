@@ -10,51 +10,50 @@ export interface Props {
 const { headings } = Astro.props;
 ---
 
-<aside 
-  id="toc-container" 
+<aside
+  id="toc-container"
   class="fixed right-0 top-20 z-40 transition-transform duration-300"
   aria-label="Table of contents"
 >
   <!-- 触发按钮 - 移到左边 -->
   <button
     id="toc-trigger"
-    class="absolute left-0 -translate-x-full bg-skin-fill border-2 border-r-0 border-skin-line p-2 rounded-l-lg text-skin-base hover:text-skin-accent md:cursor-default cursor-move touch-none"
+    class="md:cursor-default absolute left-0 -translate-x-full cursor-move touch-none rounded-l-lg border-2 border-r-0 border-skin-line bg-skin-fill p-2 text-skin-base hover:text-skin-accent"
     aria-label="Toggle table of contents"
     title="移动端可拖动"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
       <path class="toc-arrow hidden" d="M9 18l6-6-6-6"></path>
       <path class="toc-list" d="M3 9h18M3 15h18M3 5h18M3 19h18"></path>
     </svg>
   </button>
 
   <!-- 目录内容 -->
-  <div 
+  <div
     id="toc-content"
-    class="w-64 bg-skin-fill border-2 border-skin-line p-4 rounded-l-lg max-h-[calc(100vh-10rem)] overflow-y-auto overflow-x-hidden scrollbar-hide"
+    class="scrollbar-hide max-h-[calc(100vh-10rem)] w-64 overflow-y-auto overflow-x-hidden rounded-l-lg border-2 border-skin-line bg-skin-fill p-4"
   >
-    <h2 class="text-lg font-bold text-skin-base mb-4">目录</h2>
+    <h2 class="mb-4 text-lg font-bold text-skin-base">目录</h2>
     <nav>
-      <ul class="space-y-1 list-none">
+      <ul class="list-none space-y-1">
         {
           headings.map(heading => (
-            <li 
-              class={`
-                ${heading.depth === 2 ? "ml-0" : ""}
-                ${heading.depth === 3 ? "ml-4" : ""}
-                ${heading.depth === 4 ? "ml-8" : ""}
-                ${heading.depth === 5 ? "ml-12" : ""}
-                ${heading.depth === 6 ? "ml-16" : ""}
-              `}
+            <li
+              class={` ${heading.depth === 2 ? "ml-0" : ""} ${heading.depth === 3 ? "ml-4" : ""} ${heading.depth === 4 ? "ml-8" : ""} ${heading.depth === 5 ? "ml-12" : ""} ${heading.depth === 6 ? "ml-16" : ""} `}
             >
               <a
                 href={`#${heading.slug}`}
-                class={`
-                  block py-1 text-skin-base hover:text-skin-accent
-                  ${heading.depth === 2 ? "text-base font-medium" : ""}
-                  ${heading.depth === 3 ? "text-sm" : ""}
-                  ${heading.depth >= 4 ? "text-xs opacity-80" : ""}
-                `}
+                class={`block py-1 text-skin-base hover:text-skin-accent ${heading.depth === 2 ? "text-base font-medium" : ""} ${heading.depth === 3 ? "text-sm" : ""} ${heading.depth >= 4 ? "text-xs opacity-80" : ""} `}
                 data-heading-link
               >
                 {heading.text}
@@ -77,16 +76,16 @@ const { headings } = Astro.props;
     if (!container || !trigger || !triggerSvg) return;
 
     const updateSvg = (isOpen: boolean) => {
-      const arrowPath = triggerSvg?.querySelector('.toc-arrow');
-      const listPath = triggerSvg?.querySelector('.toc-list');
-      
+      const arrowPath = triggerSvg?.querySelector(".toc-arrow");
+      const listPath = triggerSvg?.querySelector(".toc-list");
+
       if (arrowPath && listPath) {
         if (isOpen) {
-          arrowPath.classList.add('hidden');
-          listPath.classList.remove('hidden');
+          arrowPath.classList.add("hidden");
+          listPath.classList.remove("hidden");
         } else {
-          arrowPath.classList.remove('hidden');
-          listPath.classList.add('hidden');
+          arrowPath.classList.remove("hidden");
+          listPath.classList.add("hidden");
         }
       }
     };
@@ -116,9 +115,9 @@ const { headings } = Astro.props;
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
-    }
+  }
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
-    }
+  }
 </style>

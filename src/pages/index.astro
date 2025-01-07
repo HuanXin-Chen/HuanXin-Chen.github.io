@@ -22,12 +22,12 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="hero" class="flex gap-5 justify-center align-middle">
+    <section id="hero" class="flex justify-center gap-5 align-middle">
       <aside class="hidden flex-col justify-center sm:flex">
         <img
           src="/me.jpg"
           alt="HuanXin Chen"
-          class="block max-w-30 aspect-square rounded-full"
+          class="max-w-30 block aspect-square rounded-full"
         />
       </aside>
       <article>
@@ -51,8 +51,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
         <p>
           I am a junior undergraduate student from <strong>GZHU</strong>.
-          Technologically, I am very interested in <strong>back-end development, network security, AI Infra</strong>, etc.
-          Besides that, I love <strong>photography</strong> and enjoy sharing the moments captured through my lens online.
+          Technologically, I am very interested in <strong
+            >back-end development, network security, AI Infra</strong
+          >, etc. Besides that, I love <strong>photography</strong> and enjoy sharing
+          the moments captured through my lens online.
         </p>
         {
           // only display if at least one social link is enabled

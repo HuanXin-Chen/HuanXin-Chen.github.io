@@ -47,7 +47,7 @@ export type Conference = {
 
 export type SocialIcons = {
   Github: string;
-  Xiaohongshu: string; 
+  Xiaohongshu: string;
   Wechat: string;
   Douyin: string;
   QQMail: string;
