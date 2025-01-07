@@ -12,7 +12,7 @@ const { headings } = Astro.props;
 
 <aside
   id="toc-container"
-  class="fixed right-0 top-20 z-40 transition-transform duration-300"
+  class="fixed right-0 top-20 z-40 transition-transform duration-300 translate-x-full"
   aria-label="Table of contents"
 >
   <!-- 触发按钮 - 移到左边 -->
@@ -71,7 +71,7 @@ const { headings } = Astro.props;
     const container = document.getElementById("toc-container");
     const trigger = document.getElementById("toc-trigger");
     const triggerSvg = trigger?.querySelector("svg");
-    let isOpen = true;
+    let isOpen = false;
 
     if (!container || !trigger || !triggerSvg) return;
 
@@ -90,9 +90,6 @@ const { headings } = Astro.props;
       }
     };
 
-    // 初始状态：关闭
-    container.classList.add("translate-x-full");
-    isOpen = false;
     updateSvg(isOpen);
 
     trigger.addEventListener("click", () => {

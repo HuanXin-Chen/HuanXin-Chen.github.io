@@ -81,22 +81,22 @@
 
   /* width */
   ::-webkit-scrollbar {
-    @apply w-3;
+    width: 3px;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-skin-fill;
+    background-color: var(--color-fill);
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-skin-card;
+    background-color: var(--color-border);
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-skin-card-muted;
+    background-color: var(--color-card-muted);
   }
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
