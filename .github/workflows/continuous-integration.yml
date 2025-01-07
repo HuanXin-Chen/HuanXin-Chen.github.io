@@ -3,7 +3,7 @@ name: Continous Integration
 on:
   push:
     branches:
-      - "main"
+      - "master"
   pull_request:
   workflow_dispatch:
 
@@ -26,6 +26,8 @@ jobs:
         with:
           node-version: "22"
           package-manager: "pnpm@9"
+      - name: Check format
+        run: pnpm format:check
 
   deploy:
     needs: build
