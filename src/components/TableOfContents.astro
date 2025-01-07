@@ -12,13 +12,13 @@ const { headings } = Astro.props;
 
 <aside 
   id="toc-container" 
-  class="fixed right-0 top-20 z-40 transition-transform duration-300"  {/* left-0 改为 right-0 */}
+  class="fixed right-0 top-20 z-40 transition-transform duration-300"
   aria-label="Table of contents"
 >
   <!-- 触发按钮 - 移到左边 -->
   <button
     id="toc-trigger"
-    class="absolute left-0 -translate-x-full bg-skin-fill border-2 border-r-0 border-skin-line p-2 rounded-l-lg text-skin-base hover:text-skin-accent md:cursor-default cursor-move touch-none"  {/* 修改边框和圆角位置 */}
+    class="absolute left-0 -translate-x-full bg-skin-fill border-2 border-r-0 border-skin-line p-2 rounded-l-lg text-skin-base hover:text-skin-accent md:cursor-default cursor-move touch-none"
     aria-label="Toggle table of contents"
     title="移动端可拖动"
   >
@@ -31,7 +31,7 @@ const { headings } = Astro.props;
   <!-- 目录内容 -->
   <div 
     id="toc-content"
-    class="w-64 bg-skin-fill border-2 border-skin-line p-4 rounded-l-lg max-h-[calc(100vh-10rem)] overflow-y-auto overflow-x-hidden scrollbar-hide"  {/* rounded-r-lg 改为 rounded-l-lg */}
+    class="w-64 bg-skin-fill border-2 border-skin-line p-4 rounded-l-lg max-h-[calc(100vh-10rem)] overflow-y-auto overflow-x-hidden scrollbar-hide"
   >
     <h2 class="text-lg font-bold text-skin-base mb-4">目录</h2>
     <nav>
@@ -68,10 +68,6 @@ const { headings } = Astro.props;
 </aside>
 
 <script>
-  function isMobile() {
-    return window.innerWidth <= 768;
-  }
-
   function setupTOC() {
     const container = document.getElementById("toc-container");
     const trigger = document.getElementById("toc-trigger");
@@ -79,10 +75,6 @@ const { headings } = Astro.props;
     let isOpen = true;
 
     if (!container || !trigger || !triggerSvg) return;
-
-    let isDragging = false;
-    let startY = 0;
-    let startTop = 0;
 
     const updateSvg = (isOpen: boolean) => {
       const arrowPath = triggerSvg?.querySelector('.toc-arrow');
@@ -105,7 +97,6 @@ const { headings } = Astro.props;
     updateSvg(isOpen);
 
     trigger.addEventListener("click", () => {
-      if (isDragging) return;
       isOpen = !isOpen;
       if (isOpen) {
         container.classList.remove("translate-x-full");
@@ -114,57 +105,9 @@ const { headings } = Astro.props;
       }
       updateSvg(isOpen);
     });
-
-    // 修改鼠标拖拽事件，只在移动端生效
-    trigger.addEventListener("mousedown", (e) => {
-      if (!isMobile()) return;
-      isDragging = true;
-      startY = e.clientY;
-      startTop = parseInt(container.style.top || "80");
-      e.preventDefault();
-    });
-
-    document.addEventListener("mousemove", (e) => {
-      if (!isMobile() || !isDragging) return;
-      const deltaY = e.clientY - startY;
-      const newTop = Math.max(20, Math.min(startTop + deltaY, window.innerHeight - 100));
-      container.style.top = `${newTop}px`;
-    });
-
-    document.addEventListener("mouseup", () => {
-      isDragging = false;
-    });
-
-    trigger.addEventListener("touchstart", (e) => {
-      isDragging = true;
-      startY = e.touches[0].clientY;
-      startTop = parseInt(container.style.top || "80");
-    });
-
-    document.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      const deltaY = e.touches[0].clientY - startY;
-      const newTop = Math.max(20, Math.min(startTop + deltaY, window.innerHeight - 100));
-      container.style.top = `${newTop}px`;
-    });
-
-    document.addEventListener("touchend", () => {
-      isDragging = false;
-    });
   }
 
   document.addEventListener("astro:page-load", () => {
     setupTOC();
   });
 </script>
-
-<style>
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-</style>
