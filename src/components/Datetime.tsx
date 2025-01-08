@@ -58,17 +58,16 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
     day: "numeric",
   });
 
-  const time = myDatetime.toLocaleTimeString(LOCALE.langTag, {
-    hour: "2-digit",
-    minute: "2-digit",
+  const weekday = myDatetime.toLocaleDateString(LOCALE.langTag, {
+    weekday: "long",
   });
 
   return (
     <>
       <time dateTime={myDatetime.toISOString()}>{date}</time>
       <span aria-hidden="true"> | </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{time}</span>
+      <span className="sr-only">&nbsp;on&nbsp;</span>
+      <span className="text-nowrap">{weekday}</span>
     </>
   );
 };

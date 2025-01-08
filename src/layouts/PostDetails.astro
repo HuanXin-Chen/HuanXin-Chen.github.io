@@ -8,7 +8,6 @@ import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
-import TableOfContents from "@components/TableOfContents.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -89,12 +88,15 @@ const nextPost =
 
     {
       ogImageUrl && (
-        <img alt="" src={ogImageUrl} class="max-h-25 my-10 aspect-video" />
+        <img
+          alt=""
+          src={ogImageUrl}
+          class="max-h-25 my-10 aspect-[16/9] w-full object-cover"
+        />
       )
     }
 
     <article id="article" class="prose mx-auto mt-8 max-w-3xl">
-      <TableOfContents headings={headings} />
       <Content />
     </article>
 

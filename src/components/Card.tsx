@@ -27,16 +27,16 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
     <li className="my-6">
       <div className="flex gap-4">
         {ogImage && (
-          <img
-            src={ogUrl}
-            alt={title}
-            className="aspect-square w-32 shrink-0 rounded-lg object-cover"
-          />
+          <div className="relative w-24 shrink-0">
+            <img
+              src={ogUrl}
+              alt={title}
+              className="aspect-square w-full rounded-lg object-cover"
+            />
+          </div>
         )}
 
         <div className="flex flex-col gap-2">
-          {" "}
-          {/* 减小间距 */}
           <a
             href={href}
             className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
@@ -47,8 +47,6 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
                 lang={language}
                 className="text-base font-bold"
               >
-                {" "}
-                {/* 只调整大小和粗细 */}
                 {prefixedTitle}
               </h2>
             ) : (
@@ -65,11 +63,8 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
             pubDatetime={pubDatetime}
             modDatetime={modDatetime}
             className="text-sm"
-          />{" "}
-          {/* 只调整大小 */}
+          />
           <p lang={language} className="text-sm">
-            {" "}
-            {/* 只调整大小 */}
             {description}
           </p>
         </div>
