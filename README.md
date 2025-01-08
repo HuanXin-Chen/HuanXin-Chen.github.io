@@ -1,14 +1,12 @@
-### HuanXin Chen's Blog
+This blog is a secondary development based on [Slashgear](https://github.com/Slashgear/personal-blog). Most of the functions and styles of its blog already meet my requirements.
 
-该博客是基于 [Slashgear](https://github.com/Slashgear/personal-blog) 做的二次开发,他的博客大多功能以及样式已经满足我的需求。
-
-后续我应该不会再更新我的博客样式,在空余的时间，我将会增加一些新的功能进去。
+I probably won't update the blog style anymore. In my spare time, I will add some new functions.
 
 #### Plan Todo：
 
-- 优化渲染界面与外观
-- 优化目录列表
-- 设计相册功能（类似小红书帖子）
-- 引入简历功能
-- 引入技术月报专栏
-- etc
+- Optimize the rendering interface and appearance.
+- Optimize the table of contents list.
+- Design an album function (similar to Xiaohongshu posts).
+- Introduce a resume function.
+- Introduce a technical monthly report column.
+- etc.
