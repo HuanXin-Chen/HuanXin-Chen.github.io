@@ -9,7 +9,7 @@ import Main from "../layouts/Main.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "../content/photo/*.{jpg,jpeg,png,webp}",
+  "../content/photo/*.{jpg,jpeg,png,webp}"
 );
 ---
 
@@ -18,9 +18,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <Breadcrumbs />
   <main id="main-content">
     <section id="about" class="prose max-w-4xl prose-img:border-0">
-      <h1 class="text-2xl tracking-wider sm:text-2xl">
-        My Photography Works
-      </h1>
+      <h1 class="text-2xl tracking-wider sm:text-2xl">My Photography Works</h1>
     </section>
   </main>
   <section class="justified-gallery mt-0" id="photoswipe">
@@ -54,23 +52,26 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
   // 使用事件委托确保持续工作
-  document.addEventListener('click', function(e) {
+  document.addEventListener("click", function (e) {
     // 类型检查确保 target 是 Element
     if (!(e.target instanceof Element)) return;
 
     // 查找最近的带有 data-fancybox 属性的祖先元素
-    const link = e.target.closest('[data-fancybox]');
+    const link = e.target.closest("[data-fancybox]");
     if (link) {
       e.preventDefault();
 
       // 获取所有带有相同 gallery 名称的元素
-      const galleryName = link.getAttribute('data-fancybox');
-      const allGalleryItems = document.querySelectorAll(`[data-fancybox="${galleryName}"]`);
+      const galleryName = link.getAttribute("data-fancybox");
+      const allGalleryItems = document.querySelectorAll(
+        `[data-fancybox="${galleryName}"]`
+      );
 
       // 构建图片数组
       const images = Array.from(allGalleryItems)
         .map(item => {
-          const src = item.getAttribute('data-src') || item.getAttribute('href');
+          const src =
+            item.getAttribute("data-src") || item.getAttribute("href");
           if (!src) return null;
           return { src, type: "image" };
         })
@@ -99,75 +100,69 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
           },
           transition: "slide",
         },
-        startIndex: currentIndex // 从当前点击的图片开始
+        startIndex: currentIndex, // 从当前点击的图片开始
       });
     }
   });
 </script>
 
-
 <style>
-.justified-gallery {
-
-  --padding: 8px; /* 减小容器内边距 */
-  --space: 8px; /* 减小图片间距 */
-  --columns: 3; /* 默认列数 */
-
-  padding: var(--padding);
-  column-count: var(--columns);
-  column-gap: var(--space);
-  }
-
-.justified-gallery a {
-  display: block;
-  margin-bottom: var(--space);
-  break-inside: avoid;
-  overflow: hidden;
-  opacity: 1;
-  transition: all 0.05s ease-in-out;
-  }
-
-.justified-gallery a img {
-  display: block;
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-  }
-
-.justified-gallery a:focus-visible {
-  outline: 3px solid var(--outline);
-  outline-offset: 2px;
-  transform: scale(1.05);
-  z-index: 1;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
-  }
-
-.justified-gallery a.hidden {
-  transition: opacity 0.4s ease-in-out;
-  opacity: 0;
-  }
-
-/* 响应式列数调整 */
-@media (max-width: 1200px) {
   .justified-gallery {
-  --columns: 3;
-  }
+    --padding: 8px; /* 减小容器内边距 */
+    --space: 8px; /* 减小图片间距 */
+    --columns: 3; /* 默认列数 */
+
+    padding: var(--padding);
+    column-count: var(--columns);
+    column-gap: var(--space);
   }
 
-@media (max-width: 992px) {
-  .justified-gallery {
-  --columns: 2;
-  }
+  .justified-gallery a {
+    display: block;
+    margin-bottom: var(--space);
+    break-inside: avoid;
+    overflow: hidden;
+    opacity: 1;
+    transition: all 0.05s ease-in-out;
   }
 
-@media (max-width: 576px) {
-  .justified-gallery {
-  --columns: 1;
+  .justified-gallery a img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
   }
+
+  .justified-gallery a:focus-visible {
+    outline: 3px solid var(--outline);
+    outline-offset: 2px;
+    transform: scale(1.05);
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .justified-gallery a.hidden {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0;
+  }
+
+  /* 响应式列数调整 */
+  @media (max-width: 1200px) {
+    .justified-gallery {
+      --columns: 3;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .justified-gallery {
+      --columns: 2;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .justified-gallery {
+      --columns: 1;
+    }
   }
 </style>
-
-
-
-
