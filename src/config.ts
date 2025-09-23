@@ -32,6 +32,24 @@ export const SOCIALS: SocialObjects = [
     linkTitle: `${SITE.title} on Github`,
     active: true,
   },
+  {
+    name: "TikTok",
+    href: "https://v.douyin.com/KES9h0lptYs/ 7@3.com :7pm",
+    linkTitle: `${SITE.title} on TikTok`,
+    active: true,
+  },
+  {
+    name: "RedBook",
+    href: "https://xhslink.com/m/5G60mALd5UO",
+    linkTitle: `${SITE.title} on RedBook`,
+    active: true,
+  },
+  {
+    name: "WeChatPublic",
+    href: "https://mp.weixin.qq.com/s/6OzB9i7PRpMjlOD1uRhAhw",
+    linkTitle: `${SITE.title} on WeChatPublic`,
+    active: true,
+  },
   // {
   //   name: "LinkedIn",
   //   href: "https://www.linkedin.com/in/antoine-caron-slash/",
