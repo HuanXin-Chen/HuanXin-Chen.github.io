@@ -8,6 +8,7 @@ export interface Props {
     | "posts"
     | "tags"
     | "search"
+    | "photo"
     | "friends"
     | "resume"
     | "conferences";
@@ -70,6 +71,11 @@ const { activeNav } = Astro.props;
           <li>
             <a href="/tags/" class={activeNav === "tags" ? "active" : ""}>
               Tags
+            </a>
+          </li>
+          <li>
+            <a href="/photo/" class={activeNav === "photo" ? "active" : ""}>
+              Photos
             </a>
           </li>
           <!--<li>-->
