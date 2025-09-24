@@ -8,7 +8,7 @@ export interface Props {
   noMarginTop?: boolean;
 }
 
-const { noMarginTop = false } = Astro.props;
+const { noMarginTop = true } = Astro.props;
 ---
 
 <footer class={`${noMarginTop ? "" : "mt-auto"}`}>
