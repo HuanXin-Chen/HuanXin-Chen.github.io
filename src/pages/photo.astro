@@ -16,35 +16,40 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 <Layout title={`My Photography Works | ${SITE.title}`}>
   <Header activeNav="photo" />
   <Breadcrumbs />
-  <main id="main-content">
+  <main id="desc">
     <section id="about" class="prose max-w-4xl prose-img:border-0">
       <h1 class="text-2xl tracking-wider sm:text-2xl">My Photography Works</h1>
+      <a href="/moments/" class="mb-6 mt-2 italic"
+        >Click here to view all moments! 👈</a
+      >
     </section>
   </main>
-  <section class="justified-gallery mt-0" id="photoswipe">
-    {
-      Object.entries(images).map(async ([_path, image], index) => {
-        const { default: imageData } = await image();
-        return (
-          <a
-            style={`--width: ${imageData.width}; --height: ${imageData.height};`}
-            data-fancybox="gallery"
-            data-src={imageData.src}
-            target="_blank"
-            class="cursor-pointer"
-          >
-            <Image
-              format="webp"
-              src={imageData}
-              alt=""
-              height={400}
-              loading={index < 20 ? "eager" : "lazy"}
-            />
-          </a>
-        );
-      })
-    }
-  </section>
+  <main class="py-8">
+    <section class="justified-gallery" id="photoswipe">
+      {
+        Object.entries(images).map(async ([_path, image], index) => {
+          const { default: imageData } = await image();
+          return (
+            <a
+              style={`--width: ${imageData.width}; --height: ${imageData.height};`}
+              data-fancybox="gallery"
+              data-src={imageData.src}
+              target="_blank"
+              class="cursor-pointer"
+            >
+              <Image
+                format="webp"
+                src={imageData}
+                alt=""
+                height={400}
+                loading={index < 20 ? "eager" : "lazy"}
+              />
+            </a>
+          );
+        })
+      }
+    </section>
+  </main>
   <Footer />
 </Layout>
 

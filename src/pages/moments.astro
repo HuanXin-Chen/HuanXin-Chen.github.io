@@ -1,0 +1,225 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import type { ImageMetadata } from "astro";
+import { SITE } from "../config";
+import Main from "../layouts/Main.astro";
+
+// 获取所有照片的映射
+const photos = import.meta.glob("../content/photo/*.{jpg,jpeg,png,webp}");
+const photoPaths: string[] = Object.keys(photos);
+
+interface PhotoData {
+  src: string;
+  data: ImageMetadata;
+}
+
+const moments = await getCollection("moments");
+const sortedMoments = moments
+  .filter(moment => !moment.data.draft)
+  .sort((a, b) => {
+    const dateA = new Date(a.data.date);
+    const dateB = new Date(b.data.date);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+// 创建一个函数来解析相对路径
+function resolvePhotoPath(relativePath: string): string | null {
+  // 处理相对路径，例如 "../content/photo/1.jpg"
+  const normalizedPath = relativePath.replace(
+    /^\.\.\/content\//,
+    "../content/"
+  );
+
+  // 查找匹配的导入路径
+  for (const photoPath of photoPaths) {
+    if (photoPath.includes(normalizedPath)) {
+      return photoPath;
+    }
+  }
+  return null;
+}
+
+// 预加载所有图片数据
+const momentsWithImages = await Promise.all(
+  sortedMoments.map(async moment => {
+    if (!moment.data.photos || moment.data.photos.length === 0) {
+      return { ...moment, imageData: [] as PhotoData[] };
+    }
+
+    const imageData: PhotoData[] = [];
+    for (let i = 0; i < Math.min(moment.data.photos.length, 9); i++) {
+      const photoPath: string = moment.data.photos[i];
+      const resolvedPath: string | null = resolvePhotoPath(photoPath);
+
+      if (resolvedPath && photos[resolvedPath]) {
+        try {
+          const photoModule: { default: ImageMetadata } = (await photos[
+            resolvedPath
+          ]()) as { default: ImageMetadata };
+          imageData.push({
+            src: photoModule.default.src,
+            data: photoModule.default,
+          });
+        } catch (e) {
+          console.error(`Failed to load image: ${photoPath}`, e);
+        }
+      }
+    }
+
+    return { ...moment, imageData };
+  })
+);
+---
+
+<Layout title={`My Moments | ${SITE.title}`}>
+  <Header activeNav="moments" />
+  <Breadcrumbs />
+  <main id="desc">
+    <section id="about" class="prose max-w-4xl prose-img:border-0">
+      <h1 class="text-2xl tracking-wider sm:text-2xl">
+        My Photography Moments
+      </h1>
+      <a href="/photo/" class="mb-6 mt-2 italic"
+        >Click here to view all works! 👈</a
+      >
+    </section>
+  </main>
+  <main id="main-content">
+    <section class="px-4 py-8">
+      <div class="space-y-8">
+        {
+          momentsWithImages.map(moment => (
+            <article class="pb-6">
+              <div class="mb-3 flex items-start gap-3">
+                <picture>
+                  <img
+                    src="/me.jpg"
+                    alt="Avatar"
+                    class="aspect-square h-10 w-10 rounded-full object-cover"
+                  />
+                </picture>
+                <div>
+                  <div class="text-sm font-medium">HuanXin</div>
+                  <div class="text-xs text-gray-500">
+                    {new Date(moment.data.date).toLocaleDateString("zh-CN", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {moment.data.title && (
+                <p class="mb-4 whitespace-pre-line px-1">{moment.data.title}</p>
+              )}
+
+              <div class="ml-0 max-w-2xl">
+                {moment.imageData && moment.imageData.length > 0 && (
+                  <div
+                    class="grid gap-2"
+                    class:list={[
+                      moment.imageData.length === 1 && "grid-cols-1",
+                      moment.imageData.length === 2 && "grid-cols-2",
+                      moment.imageData.length === 3 && "grid-cols-3",
+                      moment.imageData.length === 4 && "grid-cols-2",
+                      moment.imageData.length > 4 && "grid-cols-3",
+                    ]}
+                  >
+                    {moment.imageData.map((image: PhotoData, index: number) => (
+                      <a
+                        href={image.src}
+                        data-fancybox={`moment-${moment.slug}`}
+                        data-src={image.src}
+                        class="relative aspect-square cursor-pointer overflow-hidden rounded-lg"
+                      >
+                        <img
+                          src={image.src}
+                          alt={`Photo ${index + 1}`}
+                          class="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                        {moment.data.photos &&
+                          moment.data.photos.length > 9 &&
+                          index === 8 && (
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 font-bold text-white">
+                              +{moment.data.photos.length - 9}
+                            </div>
+                          )}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
+
+  // 使用事件委托确保持续工作
+  document.addEventListener("click", function (e) {
+    // 类型检查确保 target 是 Element
+    if (!(e.target instanceof Element)) return;
+
+    // 查找最近的带有 data-fancybox 属性的祖先元素
+    const link = e.target.closest("[data-fancybox]");
+    if (link) {
+      e.preventDefault();
+
+      // 获取所有带有相同 gallery 名称的元素
+      const galleryName = link.getAttribute("data-fancybox");
+      const allGalleryItems = document.querySelectorAll(
+        `[data-fancybox="${galleryName}"]`
+      );
+
+      // 构建图片数组
+      const images = Array.from(allGalleryItems)
+        .map(item => {
+          const src =
+            item.getAttribute("data-src") || item.getAttribute("href");
+          if (!src) return null;
+          return { src, type: "image" };
+        })
+        .filter((item): item is { src: string; type: string } => item !== null);
+
+      // 获取当前点击元素的索引
+      const currentIndex = Array.from(allGalleryItems).indexOf(link);
+
+      // 创建新的 Fancybox 实例显示整个画廊
+      Fancybox.show(images, {
+        theme: "auto",
+        mainStyle: {
+          "--f-button-width": "44px",
+          "--f-button-height": "44px",
+          "--f-button-border-radius": "50%",
+          "--f-toolbar-padding": "16px",
+        },
+        Carousel: {
+          Arrows: false,
+          Toolbar: {
+            display: {
+              left: [],
+              middle: [],
+              right: ["close"],
+            },
+          },
+          transition: "slide",
+        },
+        startIndex: currentIndex, // 从当前点击的图片开始
+      });
+    }
+  });
+</script>

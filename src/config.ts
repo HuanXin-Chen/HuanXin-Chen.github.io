@@ -1,4 +1,17 @@
 import type { Site, SocialObjects, BlogConfig } from "./types";
+import { defineCollection, z } from "astro:content";
+
+const moments = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string().optional(),
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    photos: z.array(z.string()).optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { moments };
 
 export const SITE: Site = {
   website: "https://huanxin-chen.github.io/", // replace this with your deployed domain
