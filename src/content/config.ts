@@ -18,6 +18,8 @@ const blog = defineCollection({
       description: z.string(),
       canonicalURL: z.string().optional(),
       language: z.string().optional(),
+      date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+      photos: z.array(z.string()).optional(),
     }),
 });
 
