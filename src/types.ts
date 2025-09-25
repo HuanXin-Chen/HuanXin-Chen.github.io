@@ -53,3 +53,17 @@ export type SocialIcons = {
   QQMail: string;
   // ... 其他已有的类型
 };
+
+export interface BlogConfig {
+  title: string;
+  author: string;
+  description: string;
+  email: string;
+
+  /**
+   * Hero section. (首页的主体部分)
+   */
+  hero: {
+    description: string | string[];
+  };
+}

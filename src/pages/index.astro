@@ -3,125 +3,72 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import LinkButton from "@components/LinkButton.astro";
-import Hr from "@components/Hr.astro";
-import Card from "@components/Card";
-import Socials from "@components/Socials.astro";
-import getSortedPosts from "@utils/getSortedPosts";
-import { SITE, SOCIALS } from "@config";
+import { SITE, SOCIALS, config } from "@config";
 
 const posts = await getCollection("blog");
-
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-
-const socialCount = SOCIALS.filter(social => social.active).length;
+const { description } = config.hero;
+const DESCRIPTIONS = ["INFJ | Photographer | Geek | Traveler 🏂"];
 ---
 
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="hero" class="flex justify-center gap-5 align-middle">
-      <aside class="hidden flex-col justify-center sm:flex">
-        <img
-          src="/me.jpg"
-          alt="HuanXin Chen"
-          class="max-w-30 block aspect-square rounded-full"
-        />
-      </aside>
-      <article>
-        <h1>HuanXin Chen</h1>
-        <a
-          target="_blank"
-          href="/rss.xml"
-          class="rss-link"
-          aria-label="rss feed"
-          title="RSS Feed"
+    <section class="justified-gallery mb-7.5 mt-5">
+      <div class="my-5 flex flex-col gap-5">
+        <div
+          class="md:mb-2.5 flex flex-col justify-start gap-5 sm:flex-row sm:gap-20"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-            ><path
-              d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-            ></path><path
-              d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-            ></path><circle cx="6" cy="18" r="2"></circle>
-          </svg>
-          <span class="sr-only">RSS Feed</span>
-        </a>
-
-        <p>
-          <strong>INFJ | Photographer | Geek | Traveler 🏂 </strong><br />
-          <br />
-          I am a junior undergraduate student from <strong>GZHU</strong>.
-          Technologically, I am very interested in <strong
-            >Back-End, Cybersecurity and AI Infra,</strong
-          > etc. Besides that, I love <strong>photography</strong> and enjoy sharing
-          the moments captured through my lens online.
-        </p>
-        {
-          // only display if at least one social link is enabled
-          socialCount > 0 && (
-            <div class="social-wrapper">
-              <div class="social-links">Social Links:</div>
-              <Socials />
+          <picture>
+            <img
+              src="/me.jpg"
+              alt="Avatar"
+              class="aspect-square h-24 w-24 rounded-full"
+            />
+          </picture>
+          <div class="mt-auto">
+            <div class="flex items-center gap-4">
+              <h1 class="text-3xl font-bold">{config.title}</h1>
+              <a
+                target="_blank"
+                href="/rss.xml"
+                class="rss-link"
+                aria-label="rss feed"
+                title="RSS Feed"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
+                  ><path
+                    d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
+                  ></path><path
+                    d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
+                  ></path><circle cx="6" cy="18" r="2"></circle>
+                </svg>
+                <span class="sr-only">RSS Feed</span>
+              </a>
             </div>
-          )
-        }
-      </article>
+            <p class="mt-1 text-sm">
+              <br />
+              {
+                DESCRIPTIONS.map((desc, index) => (
+                  <>
+                    <span>{desc.charAt(0).toUpperCase() + desc.slice(1)}</span>
+                    {index === 0 ? <br /> : null}
+                  </>
+                ))
+              }
+            </p>
+          </div>
+        </div>
+        <div>
+          {
+            Array.isArray(description) ? (
+              description.map(desc => <p class="my-2.5">{desc}</p>)
+            ) : (
+              <p class="my-2.5">{description}</p>
+            )
+          }
+        </div>
+      </div>
     </section>
-
-    <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card
-                  href={`/posts/${slug}/`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < SITE.postPerIndex && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
-                )
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
-        All Posts
-        <svg xmlns="http://www.w3.org/2000/svg"
-          ><path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
-        </svg>
-      </LinkButton>
-    </div>
   </main>
 
   <Footer />

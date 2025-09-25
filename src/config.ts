@@ -1,4 +1,4 @@
-import type { Site, SocialObjects } from "./types";
+import type { Site, SocialObjects, BlogConfig } from "./types";
 
 export const SITE: Site = {
   website: "https://huanxin-chen.github.io/", // replace this with your deployed domain
@@ -99,3 +99,16 @@ export const SOCIALS: SocialObjects = [
   //   active: true,
   // },
 ];
+
+export const config: BlogConfig = {
+  title: "HuanXin Chen",
+  description: "With curiosity, I explore tech; with empathy, I build value.",
+  author: "situ2001",
+  email: "dogecong@gmail.com",
+
+  hero: {
+    description: [
+      "I am a junior undergraduate student from GZHU. Technologically, I am very interested in Back-End, Cybersecurity and AI Infra, etc. Besides that, I love photography and enjoy sharing the moments captured through my lens online.",
+    ],
+  },
+};
