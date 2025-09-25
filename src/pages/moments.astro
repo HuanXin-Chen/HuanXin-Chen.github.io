@@ -76,6 +76,7 @@ const momentsWithImages = await Promise.all(
   })
 );
 ---
+
 <Layout title={`My Moments | ${SITE.title}`}>
   <Header activeNav="moments" />
   <Breadcrumbs />
@@ -85,7 +86,7 @@ const momentsWithImages = await Promise.all(
         My Photography Moments
       </h1>
       <a href="/photo/" class="mb-6 mt-2 italic"
-      >Click here to view all works! 👈</a
+        >Click here to view all works! 👈</a
       >
     </section>
   </main>
@@ -117,7 +118,9 @@ const momentsWithImages = await Promise.all(
 
               <div>
                 {moment.data.title && (
-                  <p class="mb-4 whitespace-pre-line px-1">{moment.data.title}</p>
+                  <p class="mb-4 whitespace-pre-line px-1">
+                    {moment.data.title}
+                  </p>
                 )}
               </div>
 
