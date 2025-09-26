@@ -138,7 +138,7 @@ const momentsWithImages = await Promise.all(
                   >
                     {moment.imageData.map((image: PhotoData, index: number) => (
                       <a
-                        href={image.src}
+                        target="_blank"
                         data-fancybox={`moment-${moment.slug}`}
                         data-src={image.src}
                         class="relative aspect-square cursor-pointer overflow-hidden rounded-lg"
