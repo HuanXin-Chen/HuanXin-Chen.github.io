@@ -30,7 +30,7 @@ const friends: Friend[] = await getCollection("friends");
       <h1 class="text-2xl tracking-wider sm:text-2xl">
         Friends you should follow
       </h1>
-      <div class="grid auto-rows-fr grid-cols-4 gap-2">
+      <div class="grid auto-rows-fr grid-cols-4 gap-2 sm:grid-cols-5">
         {
           friends.map(friend => (
             <a
@@ -39,13 +39,15 @@ const friends: Friend[] = await getCollection("friends");
               rel="noopener noreferrer"
               class="block flex"
             >
-              <figure class="text-center">
+              <figure class="md:py-6 lg:py-6 m-0 py-1 text-center sm:py-2">
                 <img
                   alt={friend.data.name}
                   src={getImagePath(friend.data.image)}
-                  class="h-auto w-24 rounded-lg object-cover"
+                  class="mx-auto block h-auto w-24 rounded-lg object-cover"
                 />
-                <figcaption>{friend.data.name}</figcaption>
+                <figcaption class="m-0 p-0 text-xs leading-tight">
+                  {friend.data.name}
+                </figcaption>
               </figure>
             </a>
           ))
