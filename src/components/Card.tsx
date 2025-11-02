@@ -34,7 +34,8 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
               height="36"
               loading="lazy"
               decoding="async"
-              className="aspect-square w-full rounded-lg object-cover"
+              fetchPriority="low"
+              className="aspect-square w-24 block h-auto mx-auto rounded-lg object-cover"
             />
           </div>
         )}
