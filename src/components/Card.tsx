@@ -22,7 +22,6 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
 
   const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
   const ogUrl = ogImageUrl ?? `/posts/${slugifyStr(title)}.png`;
-
   return (
     <li className="my-6">
       <div className="flex gap-4">
@@ -31,6 +30,10 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
             <img
               src={ogUrl}
               alt={title}
+              width="36"
+              height="36"
+              loading="lazy"
+              decoding="async"
               className="aspect-square w-full rounded-lg object-cover"
             />
           </div>

@@ -43,6 +43,8 @@ const friends: Friend[] = await getCollection("friends");
                 <img
                   alt={friend.data.name}
                   src={getImagePath(friend.data.image)}
+                  loading="lazy"
+                  decoding="async"
                   class="mx-auto block h-auto w-24 rounded-lg object-cover"
                 />
                 <figcaption class="m-0 p-0 text-xs leading-tight">
