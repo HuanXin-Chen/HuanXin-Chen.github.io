@@ -1,12 +1,13 @@
 ---
-title: 通用简单点赞、收藏、阅读实现方案
-description: 一个简单的通用点赞、收藏、阅读实现方案
+title: 简单点赞、收藏、阅读实现方案
+description: 一个简单的通用点赞、收藏、阅读实现方案~
 pubDatetime: 2025-11-12
 published: true
 ogImage: ../../assets/26.jpg
 language: cn
 tags:
   - 系统设计
+  - 内容业务
 ---
 
 ## 场景说明
